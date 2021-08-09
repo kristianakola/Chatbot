@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <category>
+    <pattern>Hi *</pattern>
+    <template>Përshëndetje përdorues!</template>
+  </category>
+  <category>
+      <pattern>Hi</pattern>
+      <template>
+          <random>
+              <li>Përshëndetje përdorues! </li>
+              <li>Përshëndetje! </li>
+              <li>Përshëndetje,si je përdorues? </li>
+              <li>Ckemi</li>
+              <li>Tungjatjeta! </li>
+          </random>
+          </template>
+      </category>
+      <category>
+          <pattern>Hello</pattern>
+          <template>Përshëndetje përdorues!</template>
+      </category>
+      <category>
+          <pattern>Hello *</pattern>
+          <template>Përshëndetje përdorues!</template>
+      </category>
+    <category>
+        <pattern>My name is * * </pattern>
+        <template>Përshëndetje <set name="firstname"><star/> </set> <set name="surname"><star index="2"/></set> </template>
+    </category>
+    <category>
+        <pattern>What is my first name </pattern>
+        <template>Emri juaj është <get name="firstname"/> </template>
+    </category>
+    <category>
+        <pattern>What is my surname</pattern>
+        <template>Mbiemri juaj është <get name="surname"/></template>
+    </category>
+    <category>
+        <pattern>What is my full name </pattern>
+        <template>Emri juaj i plotë është <get name="firstname"/> <get name="surname"/></template>
+    </category>
+    <category>
+        <pattern>Which is your favorite albanian city </pattern>
+        <template>
+            <think>
+            <set name="city">
+            <random>
+                <li>Fier</li>
+                <li>Vlore</li>
+                <li>Tirane</li>
+                <li>Sarande</li>
+                <li>Durres</li>
+                <li>Lezhe</li>
+            </random>
+            </set>
+            </think>
+            Qyteti im i preferuar eshte <get name="city"/>.
+        </template>
+    </category>
+    <category>
+        <pattern>Can you suggest me a movie</pattern>
+        <template>
+            <think>
+            <set name="movie">
+            <random>
+                <li>Me before you</li>
+                <li>Best of me </li>
+                <li>Kiss and cry </li>
+                <li>All the bright places</li>
+                <li>Fast and furious</li>
+                <li>Full out</li>
+            </random>
+            </set>
+            </think>
+            Nje film i bukur eshte <get name="movie"/>.
+        </template>
+    </category>
+      <category>
+          <pattern>I saw *</pattern>
+          <template>
+              Duket i bukur.
+              <think><set name="movies"><star/></set></think>
+          </template>
+      </category>
+      <category>
+          <pattern>What is my favorite movie</pattern>
+          <template>Pak me pare ju shikuat <get name="movies"/>, prandaj mendoj se ju pelqen.</template>
+      </category>
+      <category>
+          <pattern>Ask me a question</pattern>
+          <template>Do you like summer?</template>
+      </category>
+      <category>
+          <pattern>Ask me another question</pattern>
+          <template>Do you have driving license?</template>
+      </category>
+      <category>
+          <that>Do you like summer?</that>
+          <pattern>Yes</pattern>
+          <template>Edhe mua, mund te shkosh ne plazh dhe te besh banjo dielli.</template>
+      </category>
+      <category>
+          <that>Do you have driving license?</that>
+          <pattern>No</pattern>
+          <template>Sa keq, mendoj se duhet te filloni proceduren ta merni.</template>
+      </category>
+      <category>
+          <pattern>ask me one more</pattern>
+          <template>
+              Do you like <random>
+                  <li>pop</li>
+                   <li>rock</li>
+                    <li>hip-pop</li>
+                     <li>country</li>
+              </random> music?
+          </template>
+      </category>
+      <category>
+          <that>Do you like * *</that>
+          <pattern>yes</pattern>
+          <template>Me behet qejfi, muzik e mire. </template>
+      </category>
+      <category>
+          <that>Do you like * *</that>
+          <pattern>no</pattern>
+          <template>Sa keq, eshte muzik e bukur. </template>
+      </category>
+      <category>
+          <pattern>I am * </pattern>
+          <template> Faleminderit qe me tregove.
+          <learn>
+              <category>
+          <pattern>What am I?</pattern>
+          <template>Me treguat se ishit i <eval><star/></eval>
+          </template>
+                </category>
+          </learn>
+          </template>
+      </category>
+      
+      <category>
+          <pattern>Ask me again a question</pattern>
+          <template>
+              Do you like Albania?
+              <reply>
+                  <text>Yes</text>
+                  <postback>chooseyes</postback>
+              </reply>
+              <reply>
+                  <text>No</text>
+                  <postback>chooseno</postback>
+              </reply>
+          </template>
+      </category>
+      <category>
+          <pattern>chooseyes</pattern>
+          <template>Sa bukur, me behet qejfi.</template>
+      </category>
+      <category>
+          <pattern>chooseno</pattern>
+          <template>Turq qe nuk te pelqen...</template>
+      </category>
+      <category>
+          <pattern>Continue</pattern>
+          <template>
+              Do you want to leave Albania?
+              <reply>
+                  <text>Yes</text>
+                  <postback>chooseyes</postback>
+              </reply>
+              <reply>
+                  <text>No</text>
+                  <postback>chooseno</postback>
+              </reply>
+          </template>
+      </category>
+      <category>
+          <pattern>chooseyes</pattern>
+          <template>Keq qe nuk ju vleresojne ne vendlindje.</template>
+      </category>
+      <category>
+          <pattern>chooseno</pattern>
+          <template>Shpresoj te mos zhgenjehesh.</template>
+      </category>
+      
+      <category>
+          <pattern>What is the date?</pattern>
+          <template>Data sot eshte <date/></template>
+      </category>
+<category>
+    <pattern></pattern>
+    <template></template>
+</category>
+<category>
+<pattern>Age in days</pattern>
+<template><interval>
+<style>days</style>
+<from><bot name="birthdate"/></from>
+<to><date format="%B %d, %Y" /></to>
+</interval></template>
+</category>
+</aiml>
